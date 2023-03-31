@@ -1,0 +1,613 @@
+{
+	"info": {
+		"_postman_id": "8a6c1edc-a5b7-4c2a-9e0e-ab661f75ab69",
+		"name": "Monitor Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Collectors and invite Messages",
+			"item": [
+				{
+					"name": "Get survey collectors",
+					"_postman_id": "584b876c-2524-4107-99d6-1ca4afa5f81e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": "https://api.surveymonkey.net/v3/surveys/{{SURVEY_ID}}/collectors",
+						"description": "Get a list of collectors for a given survey"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a survey collector",
+					"_postman_id": "3023e308-2775-4910-a868-04023ebc0e37",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"weblink\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "https://api.surveymonkey.net/v3/surveys/{{SURVEY_ID}}/collectors",
+						"description": "Creates a webline or email collector for a given survey"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a collector by id",
+					"_postman_id": "465d0019-4e2f-4f96-897d-3d4e24cf4fae",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": "https://api.surveymonkey.net/v3/collectors/{{COLLECTOR_ID}}",
+						"description": "Get a collector by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Modify a collector",
+					"_postman_id": "acf872a6-c08f-4918-a542-f8d55e454b97",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"new collector name\",\n    \"status\": \"open\",\n    \"thank_you_message\": \"Thank you for taking my survey.\",\n    \"disqualification_message\": \"Thank you for taking my survey.\",\n    \"allow_multiple_responses\": false,\n    \"redirect_url\": \"https://www.surveymonkey.com\",\n    \"password\": \"12341234\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "https://api.surveymonkey.net/v3/collectors/{{COLLECTOR_ID}}",
+						"description": "Modify a collector"
+					},
+					"response": []
+				},
+				{
+					"name": "Replace a collector",
+					"_postman_id": "e6cb249c-84f6-4d8f-9edd-d47d061bd32c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"new collector name\",\n    \"status\": \"open\",\n    \"thank_you_message\": \"Thank you for taking my survey.\",\n    \"disqualification_message\": \"Thank you for taking my survey.\",\n    \"allow_multiple_responses\": false,\n    \"redirect_url\": \"https://www.surveymonkey.com\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "https://api.surveymonkey.net/v3/collectors/{{COLLECTOR_ID}}",
+						"description": "Replace a collector"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a collector",
+					"_postman_id": "fd215c36-5f27-43e1-86b3-8493e7b5a6fc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "https://api.surveymonkey.net/v3/collectors/{{COLLECTOR_ID}}",
+						"description": "Delete a collector"
+					},
+					"response": []
+				},
+				{
+					"name": "Get collector messages",
+					"_postman_id": "beb5f783-0816-4d39-8ab9-5a4dce81e6fb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": "https://api.surveymonkey.net/v3/collectors/{{COLLECTOR_ID}}/messages",
+						"description": "Get collector messages"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a collector message",
+					"_postman_id": "89aa97be-27aa-4c7d-b4b9-12b7b399f917",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\": \"invite\",\n  \"subject\": \"Please help me by taking my survey\",\n  \"body_text\": \"Thank you in advance for taking my survey. [SurveyLink], [OptOutLink], [FooterLink]\",\n  \"is_branding_enabled\": true\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "https://api.surveymonkey.net/v3/collectors/{{COLLECTOR_ID}}/messages",
+						"description": "Create a collector message"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a message by id",
+					"_postman_id": "0534a000-f310-417f-8d7b-2e4be6617896",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": "https://api.surveymonkey.net/v3/collectors/{{COLLECTOR_ID}/messages/{{MESSAGE_ID}}",
+						"description": "Get a collector message by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Modify a message by id",
+					"_postman_id": "8df9ab67-ea48-4622-af94-4211d9c9b28c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"subject\": \"Please help me by taking my survey\",\n  \"body_text\": \"Thank you in advance for taking my survey. [SurveyLink], [OptOutLink], [FooterLink]\",\n  \"is_branding_enabled\": true\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "https://api.surveymonkey.net/v3/collectors/{{COLLECTOR_ID}}/messages/{{MESSAGE_ID}}",
+						"description": "Mofiy a collector message by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Replace a message",
+					"_postman_id": "7bd2be3b-413c-489a-a610-b204ac105880",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"subject\": \"Please help me by taking my survey\",\n  \"body_text\": \"Thank you in advance for taking my survey. [SurveyLink], [OptOutLink], [FooterLink]\",\n  \"is_branding_enabled\": true\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "https://api.surveymonkey.net/v3/collectors/{{COLLECTOR_ID}}/messages/{{MESSAGE_ID}}",
+						"description": "Replace a collector message"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a message",
+					"_postman_id": "ab610132-12ea-41c9-b1dc-cb79b1d66e22",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "https://api.surveymonkey.net/v3/collectors/{{COLLECTOR_ID}}/messages/{{MESSAGE_ID}}",
+						"description": "Delete a collector message"
+					},
+					"response": []
+				},
+				{
+					"name": "Send and existing message",
+					"_postman_id": "803c8d20-e895-48d8-9c4d-004ea7ba5dfe",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"scheduled_date\": \"2015-10-06T12:56:55+00:00\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "https://api.surveymonkey.net/v3/collectors/{{COLLECTOR_ID}}/messages/{{MESSAGE_ID}}/send",
+						"description": "Send or schedule to send an existing message to all recipients that have not received the message"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a list of recipients",
+					"_postman_id": "7db4e2a8-724e-43ee-90af-de10a3fa6ad5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": "https://api.surveymonkey.net/v3/collectors/{{COLLECTOR_ID}}/messages/{{MESSAGE_ID}}/recipients",
+						"description": "Get a list of recipients"
+					},
+					"response": []
+				},
+				{
+					"name": "Add recipient to a message",
+					"_postman_id": "b57e5940-a238-4c5b-aa1d-97318f6fd2e7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"contact_id\": \"1234\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "https://api.surveymonkey.net/v3/collectors/{{COLLECTOR_ID}}/messages/{{MESSAGE_ID}}/recipients",
+						"description": "Add a new recipient to a specified message"
+					},
+					"response": []
+				},
+				{
+					"name": "Create multiple recipients",
+					"_postman_id": "fbbd06ee-8b06-4a23-ada6-7aa991b8d3eb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"contact_list_ids\": [\"1234\", \"5678\"],\n    \"contact_ids\": [\"1234\", \"5678\"],\n    \"contacts\" :[{\n        \"email\":\"test@surveymonkey.com\",\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"custom_fields\": {\n        \"1\": \"Mr\",\n        \"2\": \"Company\",\n        \"3\": \"Address\",\n        \"4\": \"City\",\n        \"5\": \"Country\",\n        \"6\": \"Phone Number\"\n      },\n      \"extra_fields\": {\n        \"favorite_color\": \"Red\",\n        \"second_favorite_color\": \"Black\"\n      }\n  }]\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "https://api.surveymonkey.net/v3/collectors/{{COLLECTOR_ID}}/messages/{{MESSAGE_ID}}/recipients/bulk",
+						"description": "Create multiple recipients"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a recipient",
+					"_postman_id": "c2dd436e-6e41-4aa4-8e99-f25519d19361",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": "https://api.surveymonkey.net/v3/collectors/{{COLLECTOR_ID}}/recipients/{{RECIPIENT_ID}}",
+						"description": "Get a recipient by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a recipient",
+					"_postman_id": "aeadac82-cb44-4c7a-a5fa-3075060da956",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "https://api.surveymonkey.net/v3/collectors/{{COLLECTOR_ID}}/recipients/{{RECIPIENT_ID}}",
+						"description": "Delete a recipient by id"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "f45200fa-a481-404d-9cb8-834d2ab1c040",
+			"description": "Collectors allow you to collect survey responses with a link to your survey. There are two types of collectors available via the API, weblink and email. Weblink collectors collectors give you a survey URL and email collectors can be used to send survey invites messages that include a survey URL via the /messages endpoints. A variety of collector options are accepted as arguments to /surveys/{id}/collectors. Some collector options, for example, is_branding_enabled=False require a SurveyMonkey paid plan.\n\nThe View Collectors and Create/Modify Collectors scopes are both available Basic (Free) plans, however you will need to upgrade to a paid plan to view more than 100 responses or to use the survey responses endpoints."
+		},
+		{
+			"name": "https://resnexus.com/resnexus/reservations/book/BBA79026-F89E-44B0-A4F7-34822CDEA09E/Search?StartDate=6%2F15%2F2022&EndDate=6%2F17%2F2022&NumNights=2&Adults=2&Capacity3=0&amenityIDs=0&roomClass=8",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "387f6504-c6a1-404b-8058-2c786bd2bc29",
+						"exec": [
+							"pm.test(\"Your test name\", function () {",
+							"    console.log('response ' + pm.response)",
+							"    console.log(JSON.stringify(pm, undefined, 2));",
+							"",
+							"    // var jsonData = pm.response.json();",
+							"    // success =  jsonData.success;",
+							"    // listings =  jsonData.listings;",
+							"    // availabilityGrid =  jsonData.availabilityGrid;",
+							"    // classFilter =  jsonData.classFilter;",
+							"    // console.log(listings);",
+							"    // //const $ = cheerio.load(pm.response.json());",
+							"    // //output the html for testing",
+							"    // //console.log($.html());",
+							"});",
+							"",
+							" "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "a2f483d8-4b68-4a85-8841-748b6775cee4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"accept": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/json",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:97.0) Gecko/20100101 F",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://resnexus.com/resnexus/reservations/book/BBA79026-F89E-44B0-A4F7-34822CDEA09E/Search?StartDate=6%2F15%2F2022&EndDate=6%2F17%2F2022&NumNights=2&Adults=2&Capacity3=0&amenityIDs=0&roomClass=8",
+					"protocol": "https",
+					"host": [
+						"resnexus",
+						"com"
+					],
+					"path": [
+						"resnexus",
+						"reservations",
+						"book",
+						"BBA79026-F89E-44B0-A4F7-34822CDEA09E",
+						"Search"
+					],
+					"query": [
+						{
+							"key": "StartDate",
+							"value": "6%2F15%2F2022"
+						},
+						{
+							"key": "EndDate",
+							"value": "6%2F17%2F2022"
+						},
+						{
+							"key": "NumNights",
+							"value": "2"
+						},
+						{
+							"key": "Adults",
+							"value": "2"
+						},
+						{
+							"key": "Capacity3",
+							"value": "0"
+						},
+						{
+							"key": "amenityIDs",
+							"value": "0"
+						},
+						{
+							"key": "roomClass",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
